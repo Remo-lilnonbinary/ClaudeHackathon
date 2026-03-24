@@ -1,6 +1,6 @@
 # AYUDA — Crisis Intelligence from the Ground Up
 
-## CBC Spring 2026 Hackathon | Imperial College London | Track 4: Governance & Collaboration
+## CBC Spring 2026 Hackathon | Imperial College London | Track 4: Governance & Collaboration | AWARDED 2nd PLACE out of +430 Participants 
 
 ---
 
