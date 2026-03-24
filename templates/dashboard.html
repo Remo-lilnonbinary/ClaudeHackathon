@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AYUDA — Crisis dashboard</title>
+  <style>
+    :root { font-family: system-ui, sans-serif; }
+    body { margin: 1.5rem; max-width: 48rem; }
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    #seed-status { margin-top: 0.75rem; color: #333; }
+    .error { color: #a30; }
+    ul { padding-left: 1.25rem; }
+    li { margin: 0.35rem 0; }
+    li.report-critical { border-left: 4px solid #b00020; padding-left: 0.5rem; margin-left: -0.5rem; }
+  </style>
+</head>
+<body>
+  <h1>AYUDA</h1>
+  <p>Citizen reports and crisis layers. Load a demo dataset for Northern California (Napa / Sonoma wildfire + flood).</p>
+  <button type="button" id="seed-demo">Load demo scenario</button>
+  <p id="seed-status" aria-live="polite"></p>
+  <h2>Reports</h2>
+  <p><a href="/api/reports" target="_blank" rel="noopener">GET /api/reports</a> (JSON)</p>
+  <ul id="report-list"></ul>
+  <script>
+    const statusEl = document.getElementById("seed-status");
+    const listEl = document.getElementById("report-list");
+
+    async function refreshReports() {
+      const r = await fetch("/api/reports");
+      const data = await r.json();
+      listEl.innerHTML = "";
+      if (!Array.isArray(data)) return;
+      for (const rep of data) {
+        const li = document.createElement("li");
+        if (rep.urgency === "critical") li.classList.add("report-critical");
+        const mark =
+          rep.urgency === "critical"
+            ? "[CRITICAL] "
+            : rep.urgency === "high"
+              ? "[HIGH] "
+              : "";
+        const tagStr =
+          Array.isArray(rep.tags) && rep.tags.length
+            ? ` tags: ${rep.tags.join(", ")}`
+            : "";
+        li.textContent = `${mark}#${rep.id} — ${rep.description || "(no description)"} [${rep.status}, ${rep.confidence}]${tagStr}`;
+        listEl.appendChild(li);
+      }
+    }
+
+    document.getElementById("seed-demo").addEventListener("click", async () => {
+      statusEl.textContent = "Loading…";
+      statusEl.className = "";
+      try {
+        const r = await fetch("/api/seed-demo");
+        const j = await r.json();
+        if (!j.ok) {
+          statusEl.textContent = j.error || "Seed failed";
+          statusEl.className = "error";
+          return;
+        }
+        statusEl.textContent = `Loaded ${j.count} demo reports (Napa/Sonoma scenario).`;
+        await refreshReports();
+      } catch (e) {
+        statusEl.textContent = String(e);
+        statusEl.className = "error";
+      }
+    });
+
+    refreshReports();
+  </script>
+</body>
+</html>
