@@ -12,6 +12,10 @@ AYUDA turns WhatsApp — the world's most used messaging app — into a crisis r
 
 No app to download. No account to create. Works on any phone that has WhatsApp — which means 2 billion people are already onboarded.
 
+*Pitch Video: https://youtu.be/5jsaZTBqL4I*
+
+![AYUDA Dashboard](Screenshot-Dashboard_Ayuda.png)
+
 ---
 
 ## The Problem
