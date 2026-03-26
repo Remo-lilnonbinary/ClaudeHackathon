@@ -1,6 +1,6 @@
 # AYUDA, Crisis Intelligence from the Ground Up (Claude x Imperial College London Spring 2026 Hackathon)
 
-## *AWARDED 1st PLACE in Track 4: Governance & Collaboration and 2nd PLACE overall among +430 Participants* 
+## *AWARDED 2nd PLACE overall among +430 Participants and 1st PLACE in Track 4: Governance & Collaboration* 
 
 ### Idea -> Build in 2 Hours 30 Minutes
 
@@ -8,7 +8,7 @@
 
 ## What it does
 
-AYUDA turns WhatsApp — the world's most used messaging app — into a crisis reporting tool. When disaster strikes, citizens send messages, photos, and locations via WhatsApp to an AYUDA bot. The bot gently collects what it needs, tags urgency, and routes every report to a live geospatial coordinator dashboard. Coordinators see citizen ground truth overlaid with official satellite data (NASA fire detections, flood zones, weather alerts), triage incoming reports, and export everything to the formats that real crisis systems use (CAP XML for FEMA/EU ERCC, GeoJSON for GIS, CSV for everything else).
+AYUDA turns WhatsApp — the world's most used messaging app — and SMS into a crisis reporting tool. When disaster strikes, citizens send messages, photos, and locations via WhatsApp to an AYUDA bot; SMS serves as a backup when lines are down. The bot gently collects what it needs, tags urgency, and routes every report to a live geospatial coordinator dashboard. Coordinators see citizen ground truth overlaid with official satellite data (NASA fire detections, flood zones, weather alerts), triage incoming reports, and export everything to the formats that real crisis systems use (CAP XML for FEMA/EU ERCC, GeoJSON for GIS, CSV for everything else).
 
 No app to download. No account to create. Works on any phone that has WhatsApp — which means 2 billion people are already onboarded.
 
@@ -20,12 +20,11 @@ No app to download. No account to create. Works on any phone that has WhatsApp �
 
 ## The Problem
 
-When disasters hit, emergency coordinators work from satellite data and models. But the family watching fire approach their house sees reality **hours before any satellite does**. That information exists — on billions of WhatsApp conversations — but there is no structured way to get it to the people making life-or-death resource allocation decisions.
+When disasters hit, emergency coordinators work from satellite data and models. But the family watching fire approach their house sees reality **before any satellite does**. That information exists, but there is no structured way to get it to the people making life-or-death resource allocation decisions.
 
 This isn't hypothetical:
 
-- **Valencia, Spain (October 2024):** The regional government sent mobile flood alerts 12 hours after the national weather agency raised the alarm. By then, water was already in homes. 223 people died. Over half the victims were over 70. Thousands of volunteers self-organised on WhatsApp — they were the real first responders — but had no structured channel to share what they were seeing with official coordinators.
-- **London flooding:** The London Resilience Partnership involves 170+ organisations, but communities report feeling excluded from preparedness and recovery decisions. UK local election turnout sits at ~34% — and during crises, even these minimal democratic structures get bypassed entirely.
+- **Valencia, Spain (October 2024):** The regional government sent mobile flood alerts 12 hours after the national weather agency raised the alarm. By then, water was already in homes. 223 people died. Over half the victims were over 70.
 - **Globally:** 90% of disaster survivors are rescued by their own neighbours. Yet communities are systematically excluded from the planning and coordination that determines who gets help and when.
 
 The pattern repeats everywhere: warnings fail to reach the most vulnerable, communities self-organise chaotically, recovery decisions are made without the people most affected, and trust collapses.
@@ -40,7 +39,7 @@ AYUDA applies open democracy principles to crisis management. Grounded in Hélè
 
 ```
 Citizen in crisis
-    → sends WhatsApp message (text, photo, location)
+    → sends WhatsApp or SMS message (text, photo, location)
     → AYUDA bot asks gently for missing info (one follow-up max)
     → report lands on Coordinator Dashboard (geospatial map)
     → dashboard overlays official crisis data (NASA FIRMS, NWS alerts, flood zones)
@@ -73,7 +72,6 @@ Citizen in crisis
 - No app download required. No signup. No learning curve.
 - Works on low-end phones with poor connectivity.
 - Supports text, images, and GPS location sharing natively.
-- "AYUDA" means "help" in Spanish. That's what this is.
 
 ---
 
