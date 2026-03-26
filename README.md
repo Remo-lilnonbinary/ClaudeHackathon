@@ -16,6 +16,8 @@ No app to download. No account to create. Works on any phone that has WhatsApp â
 
 ![AYUDA Dashboard](Screenshot-Dashboard_Ayuda.png)
 
+![Winner_Photo](Winner_Photo.png)
+
 ---
 
 ## The Problem
